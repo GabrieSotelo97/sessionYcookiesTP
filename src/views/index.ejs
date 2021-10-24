@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title> TP</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body style="background-color: <%= locals.bgColor ? bgColor: null %> ;">
+    <main style="background-color: <%= locals.bgColor ? bgColor: null %> ;">
+      <form action="/" method="POST">
+
+        <label for="name">ingrese su nombre</label>
+        <input type="text" name="name" id="name" value="<%= locals.old && old.name ? old.name : '' %>">
+        <% if(locals.errors && errors.name){ %>
+          <small> <%= errors.name.msg %> </small>
+        <% } %> 
+
+
+        <select name="color"  >
+          <option hidden selected value="">seleccione un color</option>
+          <option value="red" <%= locals.old && old.color ==='red'? 'selected' : ''; %>>rojo</option>
+          <option value="blue" <%= locals.old && old.color ==='blue'? 'selected' : ''; %>>azul</option>
+          <option value="green" <%= locals.old && old.color ==='green'? 'selected' : ''; %>>verde</option>
+          <option value="white" <%= locals.old && old.color ==='white'? 'selected' : ''; %>>blanco</option>
+          <option value="black" <%= locals.old && old.color ==='black'? 'selected' : ''; %>>negro</option>
+        </select>
+        <label for="recordar">recordar color</label>
+        <input type="checkbox" name="recordar" id="recordar">
+        <% if(locals.errors && errors.color){ %>
+          <small> <%= errors.color.msg %> </small>
+        <% } %> 
+
+        <label for="email">ingrese su Email</label>
+        <input type="email" name="email" id="email" value="<%= locals.old && old.email ? old.email : '' %>">
+        <% if(locals.errors && errors.email){ %>
+          <small> <%= errors.email.msg %> </small>
+        <% } %> 
+
+        <label for="edad">ingrese su edad</label>
+        <input type="number" name="edad" id="edad" value="<%= locals.old && old.edad ? old.edad : '' %>">
+        <% if(locals.errors && errors.edad){ %>
+          <small> <%= errors.edad.msg %> </small>
+        <% } %> 
+
+        <button type="submit">ENVIAR</button>
+
+        <a href="/destroy">olvidar color</a>
+      </form>
+
+      <% if(datos){%>
+        <p>
+          hola <%= name %>, elegiste el color: <%= color %>, tu email es :<%= email %> y tu edad es <%= edad %>
+        </p>
+      <%} %> 
+
+    </main>
+
+
+  </body>
+</html>

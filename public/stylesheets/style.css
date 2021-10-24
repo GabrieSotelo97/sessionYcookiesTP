@@ -1,0 +1,30 @@
+form{
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  padding: 9% 25%;
+  padding-top: 50px;
+  background-color: rgb(255, 255, 255);
+  width: 30%;
+}
+small{
+  color: red;
+}
+main{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  background-color: rgb(255, 255, 255);
+  height: 100vh;
+}
+p{
+  font-size: 40px;
+}
+label{
+  margin-top: 15px;
+}
+input{
+  margin-bottom: 15px;
+}
